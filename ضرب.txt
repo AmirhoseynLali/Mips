@@ -1,0 +1,21 @@
+$s0=15
+$t1=2
+end_set
+add $t0,$zero,$s0
+addi $t2,$zero,0
+add $t3,$zero,$t1
+beq $s0,$t1,loop
+slt $t4,$s0,$t1
+bne $t4,$zero,1_end
+loop:
+beq $t0,$zero,1_end
+slt $t4,$t0,$zero
+addi $t5,$zero,1
+beq $t4,$t5,2_end
+sub $t0,$t0,$t3
+addi $t2,$t2,1
+j loop
+2_end:
+addi $t2,$t2,-1
+1_end:
+addi $s0,$t2,0
